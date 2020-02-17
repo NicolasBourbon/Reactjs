@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>More components</title>
+        <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+        <style>
+            #container{
+                padding: 50px;
+                background-color: #fff;
+            }
+        </style>
+
+    </head>
+    <body>
+   
+        <div id="container"></div>
+
+        <script type="text/babel">
+        var destination = document.querySelector("#container");
+
+            class Square extends React.Component{
+                render() {
+                    var squareStyle = {
+                        height: 150,
+                        backgroundColor: this.props.color
+                    };
+
+                    return(
+                         <div style={squareStyle}>
+
+                        </div>
+                    );
+                }
+            }
+
+            class Label extends React.Component{
+                render() {
+                    var labelStyle = {
+                        fontFamily: "sans-serif",
+                        fontWeight: "bold",
+                        padding: 13,
+                        margin: 0
+                    };
+
+                    return(
+                         <p style={labelStyle}> {this.props.color} </p>
+                    );
+                }
+            }
+
+            class Card extends React.Component {
+                render() {
+                    var cardStyle = {
+                        height: 200,
+                        width: 150,
+                        padding: 0,
+                        backgroundColor: "#FFF",
+                        boxShadow: "0px 0px 5px #666"
+                    };
+
+                    return (
+                        <div style={cardStyle}>
+                            <Square color={this.props.color} />
+                            <Label color={this.props.color} />
+                        </div>
+                    );
+                }
+            }
+
+            ReactDOM.render(
+                <div>
+                    <Card color="#FFA737"  />
+                    <Card color="#AFA237" num="3,14" size="medium" />
+                    <Card color="#FFA437" num="3,14" size="medium" />
+                    <Card color="#BFA737" num="3,14" size="medium" />
+                    <Card color="#CFA788" num="3,14" size="medium" />
+                    <Card color="#DFA537" num="3,14" size="medium" />
+
+                </div>,
+                destination
+            );
+
+
+            //----------------------------------------chapitre 4------------------
+            // var destination = document.querySelector("#container");
+
+            // class Letter extends React.Component{
+            //     render(){
+            //         var letterStyle ={
+            //             padding: 10,
+            //             margin: 0,
+            //             backgroundColor: this.props.bgcolor,
+            //             color: "#333",
+            //             display: "inline-block",
+            //             fontFamily: "monospace",
+            //             fontSize : 32,
+            //             textAlign: "center"
+            //         };
+
+            //         return (
+            //             <div style={letterStyle}>
+            //                 {this.props.children}
+            //             </div>
+            //         )
+            //     }
+            // }
+
+            // ReactDOM.render(
+            //     <div >
+            //         <Letter bgcolor="#58B3FF">A</Letter>
+            //         <Letter bgcolor="#FF605F">E</Letter>
+            //         <Letter bgcolor="#FFD52E">O</Letter>
+            //         <Letter bgcolor="#49DD8E">I</Letter>
+            //         <Letter bgcolor="#AE99FF">U</Letter>
+            //     </div>,
+            //     destination
+            // );
+
+
+
+
+        </script>
+    </body>
+</html>
